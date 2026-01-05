@@ -2,6 +2,20 @@ server:
   port: 8080
 
 spring:
+  datasource:
+    url: jdbc:sqlite:LightBoard-Alpha.db
+    driver-class-name: org.sqlite.JDBC
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 60000
+      pool-name: LightBoardHikari
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.sqlite.hibernate.dialect.SQLiteDialect
+
   thymeleaf:
     enabled: false
     mode: HTML
